@@ -6,7 +6,7 @@ import java.time.LocalDate;
 
 @Entity
 @Table
-public class Student {
+public class StudentModel {
     @Id
     @SequenceGenerator(
             name = "student_sequence",
@@ -27,18 +27,18 @@ public class Student {
     private int age;
 
 
-    public Student() {
+    public StudentModel() {
     }
 
 
-    public Student(String name, String email, LocalDate dob, int age) {
+    public StudentModel(String name, String email, LocalDate dob) {
         this.name = name;
         this.email = email;
         this.dob = dob;
-        this.age = age;
+
     }
 
-    public Student(Long id, String name, String email, LocalDate dob, int age) {
+    public StudentModel(Long id, String name, String email, LocalDate dob, int age) {
         this.id = id;
         this.name = name;
         this.email = email;

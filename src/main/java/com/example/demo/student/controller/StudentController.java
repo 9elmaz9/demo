@@ -1,6 +1,6 @@
 package com.example.demo.student.controller;
 
-import com.example.demo.student.model.Student;
+import com.example.demo.student.model.StudentModel;
 import com.example.demo.student.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -27,12 +27,12 @@ public class StudentController {
     //return "Hello world";
     //}
 
-    public List<Student> getStudent() {
+    public List<StudentModel> getStudent() {
         return studentService.getStudent();
     }
 
     @PostMapping
-    public void registerNewStudent(@RequestBody Student student){
+    public void registerNewStudent(@RequestBody StudentModel student){
         studentService.addNewStudent(student);
     }
 

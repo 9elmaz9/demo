@@ -1,6 +1,6 @@
 package com.example.demo.student.service;
 
-import com.example.demo.student.model.Student;
+import com.example.demo.student.model.StudentModel;
 import com.example.demo.student.repository.IStudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,14 +18,14 @@ public class StudentService {
         this.studentRepository = studentRepository;
     }
 
-    public List<Student> getStudent() {
+    public List<StudentModel> getStudent() {
         return studentRepository.findAll();
         //return List.of (1l, "Mariam","mariam@gmail.com",
         // LocalDate.of(2000,Mont.JANUARY,5)21));
     }
 
-    public void addNewStudent(Student student) {
-        Optional<Student> studentOptional = studentRepository.findStudentByEmail(student.getEmail());
+    public void addNewStudent(StudentModel student) {
+        Optional<StudentModel> studentOptional = studentRepository.findStudentByEmail(student.getEmail());
         if (studentOptional.isPresent()) {
             throw new IllegalStateException("email taken");
         }
