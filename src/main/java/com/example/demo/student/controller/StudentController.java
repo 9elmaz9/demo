@@ -11,32 +11,25 @@ import java.util.List;
 //daardoor de implementatie van de controller /
 
 @RestController
-@RequestMapping(path = "api/v1/student")
+@RequestMapping({"api/v1/student"})
 public class StudentController {
 
     @Autowired
     private StudentService studentService;
-
-    //@Autowired
-    // public StudentController(StudentService studentService){
-    //     this.studentService=studentService;
-
+    public StudentController(){}
 
     @GetMapping
-    //public String hello(){
-    //return "Hello world";
-    //}
-
     public List<StudentModel> getStudent() {
         return studentService.getStudent();
     }
 
-    @PostMapping
+    @PostMapping("/savestudent")
     public void registerNewStudent(@RequestBody StudentModel student){
         studentService.addNewStudent(student);
     }
 
-    @DeleteMapping(path = "{studentId}")
+    @DeleteMapping(path = {"{studentId}"}) // search num 1
+    //@DeleteMapping(path = "id={studentId}")  - search id
     public void deleteStudent (@PathVariable("studentId")Long studentId){
         studentService.deleteStudent(studentId);
     }

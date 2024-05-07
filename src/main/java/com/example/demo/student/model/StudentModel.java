@@ -1,6 +1,6 @@
 package com.example.demo.student.model;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 import java.time.LocalDate;
 
@@ -36,6 +36,13 @@ public class StudentModel {
         this.email = email;
         this.dob = dob;
 
+    }
+
+    public StudentModel(String name, String email, LocalDate dob, int age) {
+        this.name = name;
+        this.email = email;
+        this.dob = dob;
+        this.age = age;
     }
 
     public StudentModel(Long id, String name, String email, LocalDate dob, int age) {
